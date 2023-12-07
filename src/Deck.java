@@ -9,8 +9,8 @@ public class Deck {
         cardsLeft = 0;
 
         for (int i = 0; i < ranks.length; i++) {
-            for (int j = 0; j < suits.length; j++) {
-                Card card = new Card(ranks[i], suits[j], points[i]);
+            for (String suit : suits) {
+                Card card = new Card(ranks[i], suit, points[i]);
                 cards.add(card);
                 cardsLeft++;
             }
@@ -36,9 +36,8 @@ public class Deck {
         cardsLeft = cards.size();
         for (int i = cardsLeft - 1; i >= 0; i--) {
             int r = (int) (cardsLeft * Math.random());
-            Card temp = new Card(cards.get(i));
-            //System.out.println("Temp card is index " + i + " and is the " + temp);
-            cards.set(i, new Card(cards.get(r)));
+            Card temp = cards.get(i);
+            cards.set(i, cards.get(r));
             cards.set(r,temp);
         }
     }
@@ -48,5 +47,4 @@ public class Deck {
             System.out.println(card);
         }
     }
-
 }

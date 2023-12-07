@@ -59,7 +59,9 @@ public class Game {
         loot.add(p2.removeTopCard());
         while (winner == null) {
             System.out.println("War!");
-            // Check if someone just used their last card so won't have anything for the battle.
+            if (p1.getNumCards() == 0 || p2.getNumCards() == 0) {
+                return;
+            }
             for (int i = 0; i < 3; i++) {
                 if (p1.getNumCards() > 1) {
                     Card p1Card = p1.removeTopCard();
@@ -78,7 +80,6 @@ public class Game {
             loot.add(p1.removeTopCard());
             loot.add(p2.removeTopCard());
         }
-
         System.out.println("Winner: " + winner.getName());
         for (Card card : loot) {
             winner.addCard(card);
@@ -86,7 +87,6 @@ public class Game {
         loot = new ArrayList<Card>();
         System.out.println(p1.getName() + " now has " + p1.getNumCards() + " cards.");
         System.out.println(p2.getName() + " now has " + p2.getNumCards() + " cards.");
-        return;
     }
 
     public void runGame() {
@@ -96,7 +96,6 @@ public class Game {
         dealCards();
         while (true) {
             runTurn();
-            input.nextLine();
             if (p1.getNumCards() <= 0) {
                 System.out.println(p1.getName() + " is out of cards!");
                 System.out.println(p2.getName() + " wins!");
@@ -107,6 +106,7 @@ public class Game {
                 System.out.println(p1.getName() + " wins!");
                 break;
             }
+            input.nextLine();
         }
     }
     public static void main(String[] args) {

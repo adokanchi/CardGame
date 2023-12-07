@@ -5,12 +5,6 @@ public class Player {
     private ArrayList<Card> hand;
     private int points;
 
-    public Player() {
-        this.name = "unnamed";
-        this.hand = new ArrayList<Card>();
-        this.points = 0;
-    }
-
     public Player(String name) {
         this.name = name;
         this.hand = new ArrayList<Card>();
@@ -30,18 +24,8 @@ public class Player {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public ArrayList<Card> getHand() {
         return hand;
-    }
-    public void setHand(ArrayList<Card> hand) {
-        this.hand = new ArrayList<Card>();
-        for (Card card : hand) {
-            this.hand.add(card);
-        }
     }
     public int getPoints() {
         return points;

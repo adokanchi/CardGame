@@ -9,13 +9,6 @@ public class Card {
         this.point = point;
     }
 
-    // Creates a copy of the card object given as a parameter
-    public Card(Card card) {
-        this.rank = card.getRank();
-        this.suit = card.getSuit();
-        this.point = card.getPoint();
-    }
-
     public String getRank() {
         return rank;
     }
