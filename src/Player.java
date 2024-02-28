@@ -47,6 +47,10 @@ public class Player {
         return hand.get(0);
     }
 
+    public Card getBottomCard() {
+        return hand.get(hand.size() - 1);
+    }
+
     public Card removeTopCard() {
         return hand.remove(0);
     }
@@ -58,6 +62,7 @@ public class Player {
     public boolean hasCards() {
         return (this.hand.isEmpty());
     }
+
 
     public String toString() {
         String str = name + " has " + points + " points\n" + name + "'s cards: ";

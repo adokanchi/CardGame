@@ -4,13 +4,12 @@ public class Deck {
     private ArrayList<Card> cards;
     private int cardsLeft;
 
-    public Deck(String[] ranks, String[] suits, int[] points) {
+    public Deck(String[] ranks, String[] suits, int[] points, WarViewer window) {
         cards = new ArrayList<Card>();
         cardsLeft = 0;
-
         for (int i = 0; i < ranks.length; i++) {
-            for (String suit : suits) {
-                Card card = new Card(ranks[i], suit, points[i]);
+            for (int j = 0; j < suits.length; j++) {
+                Card card = new Card(ranks[i], suits[j], points[i], window);
                 cards.add(card);
                 cardsLeft++;
             }
